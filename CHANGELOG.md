@@ -1,8 +1,8 @@
 # @veridtools/dmn-parser
 
-## 1.0.0
+## 0.1.0
 
-### Major Changes
+### Minor Changes
 
 - 317b624: Initial public release of `@veridtools/dmn-parser`.
 
