@@ -1,9 +1,16 @@
 # @veridtools/dmn-parser
 
+<img src="./docs/public/verid-logo.webp" alt="Veridtools Logo" width="150" />
+
+[![npm](https://img.shields.io/npm/v/@veridtools/dmn-parser)](https://www.npmjs.com/package/@veridtools/dmn-parser)
+[![license](https://img.shields.io/github/license/veridtools/dmn-parser)](./LICENSE)
+[![ci](https://img.shields.io/github/actions/workflow/status/veridtools/dmn-parser/ci.yml?label=ci)](https://github.com/veridtools/dmn-parser/actions)
+[![docs](https://img.shields.io/badge/docs-github%20pages-blue)](https://veridtools.github.io/dmn-parser/)
+![dependencies](https://img.shields.io/badge/dependencies-1-success)
+
 DMN XML parser — typed, normalized, DMN 1.1 to 1.5.
 
 Converts any DMN file into a typed TypeScript model with a single function call.
-Used by `@verid/dmn-diff`, `@verid/dmn-runner`, `@verid/dmn-lint`, and `@verid/dmn-fmt`.
 
 ## Install
 
