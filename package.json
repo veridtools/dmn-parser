@@ -1,6 +1,6 @@
 {
   "name": "@veridtools/dmn-parser",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "DMN XML parser — typed, normalized, DMN 1.1 to 1.5",
   "author": "Victor Martins Bicudo",
   "license": "MIT",
