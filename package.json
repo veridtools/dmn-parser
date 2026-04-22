@@ -1,0 +1,83 @@
+{
+  "name": "@veridtools/dmn-parser",
+  "version": "0.0.0",
+  "description": "DMN XML parser — typed, normalized, DMN 1.1 to 1.5",
+  "author": "Victor Martins Bicudo",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "homepage": "https://github.com/veridtools/dmn-parser#readme",
+  "bugs": {
+    "url": "https://github.com/veridtools/dmn-parser/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veridtools/dmn-parser.git"
+  },
+  "keywords": [
+    "dmn",
+    "dmn-parser",
+    "parser",
+    "decision-model-and-notation",
+    "decision-table",
+    "feel",
+    "business-rules",
+    "dmn-1.5",
+    "omg-dmn",
+    "xml-parser"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "dmn-parser": "./dist/bin/dmn-parser.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "changeset": "changeset",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.3.0"
+  },
+  "devDependencies": {
+    "@veridtools/dmn-fixtures": "^0.2.0",
+    "@biomejs/biome": "^2.0.0",
+    "@changesets/cli": "^2.27.0",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@types/node": "^20.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.3.0",
+    "vitepress": "^1.6.4",
+    "vitest": "^2.0.0"
+  }
+}

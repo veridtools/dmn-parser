@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DMN 1.2 format — context expression with multiple entries -->
+<definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/"
+  id="interest_model" name="Interest Rate" namespace="https://example.com/interest">
+
+  <itemDefinition id="tCategory" name="tCategory" isCollection="false">
+    <typeRef>string</typeRef>
+    <allowedValues>
+      <text>"standard","preferred","premium"</text>
+    </allowedValues>
+  </itemDefinition>
+
+  <inputData id="loanAmount" name="Loan Amount"/>
+  <inputData id="customerCategory" name="Customer Category"/>
+
+  <decision id="rate" name="Interest Rate">
+    <informationRequirement><requiredInput href="#loanAmount"/></informationRequirement>
+    <informationRequirement><requiredInput href="#customerCategory"/></informationRequirement>
+    <context id="ctx1">
+      <contextEntry id="ce1">
+        <variable id="v1" name="base rate" typeRef="number"/>
+        <literalExpression id="le1"><text>0.05</text></literalExpression>
+      </contextEntry>
+      <contextEntry id="ce2">
+        <variable id="v2" name="discount" typeRef="number"/>
+        <literalExpression id="le2">
+          <text>if Customer Category = "premium" then 0.02
+else if Customer Category = "preferred" then 0.01
+else 0</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="ce3">
+        <literalExpression id="le3"><text>base rate - discount</text></literalExpression>
+      </contextEntry>
+    </context>
+  </decision>
+
+</definitions>

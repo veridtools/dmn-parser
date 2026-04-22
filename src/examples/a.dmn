@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/"
+  id="loan" name="Loan Approval" namespace="https://example.com/loan">
+
+  <decision id="approval" name="Loan Approval">
+    <decisionTable id="dt1" hitPolicy="UNIQUE">
+      <input id="in1" label="Credit Score">
+        <inputExpression id="ie1" typeRef="integer">
+          <text>creditScore</text>
+        </inputExpression>
+      </input>
+      <output id="out1" name="approved" typeRef="boolean" label="Approved"/>
+      <rule id="r1">
+        <inputEntry id="r1ie1"><text>&gt;= 700</text></inputEntry>
+        <outputEntry id="r1oe1"><text>true</text></outputEntry>
+      </rule>
+      <rule id="r2">
+        <inputEntry id="r2ie1"><text>&lt; 700</text></inputEntry>
+        <outputEntry id="r2oe1"><text>false</text></outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+
+</definitions>

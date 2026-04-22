@@ -1,0 +1,62 @@
+name: Bug Report — Incorrect Parse Result
+description: Report a parse error, wrong field value, or missing element in the model
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to report an incorrect parse result.
+        **Parse error** = `parse()` throws or `safeParse()` returns `success: false` for valid DMN.
+        **Wrong value** = a field in the model has an unexpected value.
+        **Missing element** = an element that should be in the model is absent.
+  - type: dropdown
+    id: bug-type
+    attributes:
+      label: Type of issue
+      options:
+        - Parse error (throws on valid DMN)
+        - Wrong field value
+        - Missing element or field
+        - Wrong expression type
+        - Index not populated correctly
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: dmn-xml
+    attributes:
+      label: DMN XML (minimal reproduction)
+      description: Paste the DMN XML snippet that causes the issue.
+      render: xml
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Paste the parse result or error message.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: What should the parsed model look like?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: e.g. 1.0.0
+  - type: dropdown
+    id: dmn-version
+    attributes:
+      label: DMN version
+      options:
+        - "1.1"
+        - "1.2"
+        - "1.3"
+        - "1.4"
+        - "1.5"
+        - Unknown

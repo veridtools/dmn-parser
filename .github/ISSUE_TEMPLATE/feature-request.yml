@@ -1,0 +1,43 @@
+name: Feature Request
+description: Request support for a new DMN element, field, or parse option
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request new parse coverage or a new API option.
+  - type: dropdown
+    id: feature-type
+    attributes:
+      label: Type of request
+      options:
+        - New element type support
+        - New field mapping
+        - New normalization rule
+        - New parse option (ParseOptions)
+        - CLI improvement
+        - API improvement
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What would you like?
+      description: Describe the feature clearly. Include the DMN element, field name, or behavior you need.
+      placeholder: |
+        e.g. Support for `typeConstraint` in itemDefinition — currently it's not mapped.
+        Or: add a `preserveExtensionElements` option to keep extensionElements in the model.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example DMN (optional)
+      description: Provide a DMN snippet and the expected model output if it helps illustrate the request.
+      render: xml
+  - type: input
+    id: dmn-version
+    attributes:
+      label: DMN version (if applicable)
+      placeholder: e.g. 1.4, 1.5, or any

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DMN 1.4 format — conditional expression (introduced in 1.4) -->
+<definitions xmlns="https://www.omg.org/spec/DMN/20211108/MODEL/"
+  id="loan" name="Loan Approval" namespace="https://example.com/loan">
+
+  <inputData id="creditScore" name="Credit Score"/>
+
+  <decision id="approval" name="Loan Approval Decision">
+    <informationRequirement><requiredInput href="#creditScore"/></informationRequirement>
+    <conditional id="cond1">
+      <if id="if1">
+        <literalExpression id="le_if1"><text>Credit Score >= 750</text></literalExpression>
+      </if>
+      <then id="then1">
+        <literalExpression id="le_then1"><text>"approved"</text></literalExpression>
+      </then>
+      <else id="else1">
+        <conditional id="cond2">
+          <if id="if2">
+            <literalExpression id="le_if2"><text>Credit Score >= 600</text></literalExpression>
+          </if>
+          <then id="then2">
+            <literalExpression id="le_then2"><text>"review"</text></literalExpression>
+          </then>
+          <else id="else2">
+            <literalExpression id="le_else2"><text>"rejected"</text></literalExpression>
+          </else>
+        </conditional>
+      </else>
+    </conditional>
+  </decision>
+
+</definitions>

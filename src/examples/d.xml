@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DMN 1.1 format — older namespace, literal expression -->
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
+  id="risk_model" name="Risk Score" namespace="https://example.com/risk">
+
+  <itemDefinition id="tRisk" name="tRisk" isCollection="false">
+    <typeRef>string</typeRef>
+    <allowedValues>
+      <text>"low","medium","high"</text>
+    </allowedValues>
+  </itemDefinition>
+
+  <inputData id="score" name="Credit Score"/>
+  <inputData id="age"   name="Applicant Age"/>
+
+  <decision id="risk" name="Risk Level">
+    <informationRequirement><requiredInput href="#score"/></informationRequirement>
+    <informationRequirement><requiredInput href="#age"/></informationRequirement>
+    <literalExpression id="le1" typeRef="tRisk">
+      <text>if Credit Score >= 700 then "low"
+else if Credit Score >= 500 then "medium"
+else "high"</text>
+    </literalExpression>
+  </decision>
+
+</definitions>

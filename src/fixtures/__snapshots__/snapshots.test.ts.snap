@@ -1,0 +1,3701 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`base fixture snapshots > base/base-allowedvalues-generalized.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_av_gen_001",
+    "tScore",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_av_gen_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [
+    {
+      "allowedValues": {
+        "id": "av_score",
+        "text": "this >= 300 and this <= 850",
+      },
+      "id": "tScore",
+      "isCollection": false,
+      "itemComponents": [],
+      "name": "tScore",
+      "typeRef": "number",
+    },
+  ],
+  "knowledgeSources": [],
+  "name": "AllowedValues Generalized",
+  "namespace": "https://verid.tools/fixtures/allowedvalues-generalized",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-artifacts.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_art_001",
+    "assoc_1",
+    "d1",
+    "le1",
+    "ta_policy",
+    "ta_test",
+  ],
+  "associations": [
+    {
+      "associationDirection": "None",
+      "id": "assoc_1",
+      "sourceRef": {
+        "href": "#d1",
+      },
+      "targetRef": {
+        "href": "#ta_policy",
+      },
+    },
+  ],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le1",
+        "text": ""approved"",
+        "type": "literalExpression",
+      },
+      "id": "d1",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "D1",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_d1",
+        "name": "D1",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_art_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Artifacts Model",
+  "namespace": "https://verid.tools/fixtures/artifacts",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [
+    {
+      "id": "ta_policy",
+      "text": "Bacen Circular 3954 — crédito a pessoas físicas",
+      "textFormat": "text/plain",
+    },
+    {
+      "id": "ta_test",
+      "text": "Test coverage: TC-001 through TC-015",
+      "textFormat": "text/plain",
+    },
+  ],
+}
+`;
+
+exports[`base fixture snapshots > base/base-bkm.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_bkm_001",
+    "bkm_risk",
+    "ce_base",
+    "ce_result",
+    "ctx_risk",
+    "fd_risk",
+    "le_base",
+    "le_res",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [
+    {
+      "authorityRequirements": [],
+      "encapsulatedLogic": {
+        "expression": {
+          "contextEntries": [
+            {
+              "expression": {
+                "id": "le_base",
+                "text": "credit score * 0.7",
+                "type": "literalExpression",
+              },
+              "id": "ce_base",
+              "variable": {
+                "id": "v_base",
+                "name": "base",
+                "typeRef": "number",
+              },
+            },
+            {
+              "expression": {
+                "id": "le_res",
+                "text": "if payment history = "good" then base * 1.1 else base * 0.9",
+                "type": "literalExpression",
+              },
+              "id": "ce_result",
+            },
+          ],
+          "id": "ctx_risk",
+          "type": "context",
+        },
+        "formalParameters": [
+          {
+            "id": "fp_score",
+            "name": "credit score",
+            "typeRef": "number",
+          },
+          {
+            "id": "fp_history",
+            "name": "payment history",
+            "typeRef": "string",
+          },
+        ],
+        "id": "fd_risk",
+        "kind": "FEEL",
+        "type": "functionDefinition",
+      },
+      "id": "bkm_risk",
+      "knowledgeRequirements": [],
+      "name": "Calculate Risk Score",
+      "variable": {
+        "id": "var_bkm",
+        "name": "Calculate Risk Score",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "decisionServices": [],
+  "decisions": [],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_bkm_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "BKM Model",
+  "namespace": "https://verid.tools/fixtures/bkm",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-business-context.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_bc_001",
+    "d_credit",
+    "le_credit",
+    "ou_credit",
+    "ou_risk",
+    "pi_revenue",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "allowedAnswers": ""approved","rejected","manual-review"",
+      "authorityRequirements": [],
+      "decisionMakers": [
+        {
+          "href": "#ou_credit",
+        },
+      ],
+      "decisionOwners": [
+        {
+          "href": "#ou_risk",
+        },
+      ],
+      "expression": {
+        "id": "le_credit",
+        "text": ""approved"",
+        "type": "literalExpression",
+      },
+      "id": "d_credit",
+      "impactedPerformanceIndicators": [
+        {
+          "href": "#pi_revenue",
+        },
+      ],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Credit Decision",
+      "question": "Should the credit be approved?",
+      "supportedObjectives": [
+        {
+          "href": "#pi_revenue",
+        },
+      ],
+      "usingProcesses": [
+        {
+          "href": "#proc_credit",
+        },
+      ],
+      "usingTasks": [
+        {
+          "href": "#task_approval",
+        },
+      ],
+      "variable": {
+        "id": "var_credit",
+        "name": "Credit Decision",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_bc_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Business Context Model",
+  "namespace": "https://verid.tools/fixtures/business-context",
+  "organizationUnits": [
+    {
+      "decisionMade": [
+        {
+          "href": "#d_credit",
+        },
+      ],
+      "decisionOwned": [],
+      "id": "ou_credit",
+      "name": "Credit Department",
+    },
+    {
+      "decisionMade": [],
+      "decisionOwned": [
+        {
+          "href": "#d_credit",
+        },
+      ],
+      "id": "ou_risk",
+      "name": "Risk Department",
+    },
+  ],
+  "performanceIndicators": [
+    {
+      "id": "pi_revenue",
+      "impactingDecisions": [
+        {
+          "href": "#d_credit",
+        },
+      ],
+      "name": "Credit Revenue",
+    },
+  ],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-conditional.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_cond_001",
+    "cond1",
+    "cond_else",
+    "cond_if",
+    "cond_then",
+    "d_cond",
+    "id_customers",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "else": {
+          "id": "cond_else",
+          "text": "0",
+          "type": "literalExpression",
+        },
+        "id": "cond1",
+        "if": {
+          "id": "cond_if",
+          "text": "count(Gold Customers) > 0",
+          "type": "literalExpression",
+        },
+        "then": {
+          "id": "cond_then",
+          "text": "sum(Gold Customers.amount)",
+          "type": "literalExpression",
+        },
+        "type": "conditional",
+      },
+      "id": "d_cond",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [
+        {
+          "id": "ir_cond",
+          "requiredInput": {
+            "href": "#id_customers",
+          },
+        },
+      ],
+      "knowledgeRequirements": [],
+      "name": "Gold Revenue",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_cond",
+        "name": "Gold Revenue",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_cond_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id_customers",
+      "name": "Gold Customers",
+      "variable": {
+        "id": "var_customers",
+        "name": "Gold Customers",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Conditional Model",
+  "namespace": "https://verid.tools/fixtures/conditional",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-context.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_ctx_001",
+    "ce_factor",
+    "ce_payment",
+    "ce_rate",
+    "ce_result",
+    "ctx_loan",
+    "d_ctx",
+    "le_factor",
+    "le_payment",
+    "le_rate",
+    "le_result",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "contextEntries": [
+          {
+            "expression": {
+              "id": "le_rate",
+              "text": "annual rate / 12",
+              "type": "literalExpression",
+            },
+            "id": "ce_rate",
+            "variable": {
+              "id": "v_rate",
+              "name": "monthly rate",
+              "typeRef": "number",
+            },
+          },
+          {
+            "expression": {
+              "id": "le_factor",
+              "text": "(1 + monthly rate) ** term",
+              "type": "literalExpression",
+            },
+            "id": "ce_factor",
+            "variable": {
+              "id": "v_factor",
+              "name": "factor",
+              "typeRef": "number",
+            },
+          },
+          {
+            "expression": {
+              "id": "le_payment",
+              "text": "principal * monthly rate * factor / (factor - 1)",
+              "type": "literalExpression",
+            },
+            "id": "ce_payment",
+            "variable": {
+              "id": "v_payment",
+              "name": "payment",
+              "typeRef": "number",
+            },
+          },
+          {
+            "expression": {
+              "id": "le_result",
+              "text": "payment",
+              "type": "literalExpression",
+            },
+            "id": "ce_result",
+          },
+        ],
+        "id": "ctx_loan",
+        "type": "context",
+      },
+      "id": "d_ctx",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Loan Calculation",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_ctx",
+        "name": "Loan Calculation",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_ctx_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Context Expression",
+  "namespace": "https://verid.tools/fixtures/context",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-decision-service.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_ds_001",
+    "d_external",
+    "d_final",
+    "d_risk",
+    "ds_credit",
+    "id_score",
+    "le_ext",
+    "le_final",
+    "le_risk",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [
+    {
+      "encapsulatedDecisions": [
+        {
+          "href": "#d_risk",
+        },
+      ],
+      "id": "ds_credit",
+      "inputData": [
+        {
+          "href": "#id_score",
+        },
+      ],
+      "inputDecisions": [
+        {
+          "href": "#d_external",
+        },
+      ],
+      "name": "Credit Evaluation Service",
+      "outputDecisions": [
+        {
+          "href": "#d_final",
+        },
+      ],
+      "variable": {
+        "id": "var_ds",
+        "name": "Credit Evaluation Service",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le_ext",
+        "text": ""external"",
+        "type": "literalExpression",
+      },
+      "id": "d_external",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "External Decision",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_ext",
+        "name": "External Decision",
+        "typeRef": "string",
+      },
+    },
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le_risk",
+        "text": ""low"",
+        "type": "literalExpression",
+      },
+      "id": "d_risk",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [
+        {
+          "id": "ir_risk",
+          "requiredInput": {
+            "href": "#id_score",
+          },
+        },
+      ],
+      "knowledgeRequirements": [],
+      "name": "Risk Assessment",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_risk",
+        "name": "Risk Assessment",
+        "typeRef": "string",
+      },
+    },
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le_final",
+        "text": ""approved"",
+        "type": "literalExpression",
+      },
+      "id": "d_final",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [
+        {
+          "id": "ir_final",
+          "requiredDecision": {
+            "href": "#d_risk",
+          },
+        },
+      ],
+      "knowledgeRequirements": [],
+      "name": "Final Decision",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_final",
+        "name": "Final Decision",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_ds_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id_score",
+      "name": "Credit Score",
+      "variable": {
+        "id": "var_score",
+        "name": "Credit Score",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Decision Service Model",
+  "namespace": "https://verid.tools/fixtures/decision-service",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-def.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_def_001",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [],
+  "description": "Fixture base para testes de definitions",
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "expressionLanguage": "https://www.omg.org/spec/DMN/20230324/FEEL/",
+  "groups": [],
+  "id": "_def_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Base Model",
+  "namespace": "https://verid.tools/fixtures/base",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+  "typeLanguage": "https://www.omg.org/spec/DMN/20230324/FEEL/",
+}
+`;
+
+exports[`base fixture snapshots > base/base-dmn11.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dmn11_001",
+    "d1",
+    "dt1",
+    "ic1",
+    "oc1",
+    "r1",
+    "r2",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [],
+        "hitPolicy": "UNIQUE",
+        "id": "dt1",
+        "inputs": [
+          {
+            "id": "ic1",
+            "inputExpression": {
+              "id": "ie1",
+              "text": "score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "label": "Score",
+          },
+        ],
+        "outputs": [
+          {
+            "id": "oc1",
+            "name": "result",
+            "typeRef": "string",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [],
+            "id": "r1",
+            "inputEntries": [
+              {
+                "id": "r1ie1",
+                "text": "> 700",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r1oe1",
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "r2",
+            "inputEntries": [
+              {
+                "id": "r2ie1",
+                "text": "-",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r2oe1",
+                "text": ""rejected"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d1",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Approval",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var1",
+        "name": "Approval",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.1",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dmn11_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DMN 1.1 Model",
+  "namespace": "https://verid.tools/fixtures/dmn11",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-dmn12.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dmn12_001",
+    "d1",
+    "dt1",
+    "ic1",
+    "oc1",
+    "r1",
+    "r2",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [],
+        "hitPolicy": "UNIQUE",
+        "id": "dt1",
+        "inputs": [
+          {
+            "id": "ic1",
+            "inputExpression": {
+              "id": "ie1",
+              "text": "score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "label": "Score",
+          },
+        ],
+        "outputs": [
+          {
+            "id": "oc1",
+            "name": "result",
+            "typeRef": "string",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [],
+            "id": "r1",
+            "inputEntries": [
+              {
+                "id": "r1ie1",
+                "text": "> 700",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r1oe1",
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "r2",
+            "inputEntries": [
+              {
+                "id": "r2ie1",
+                "text": "-",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r2oe1",
+                "text": ""rejected"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d1",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Approval",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var1",
+        "name": "Approval",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.2",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dmn12_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DMN 1.2 Model",
+  "namespace": "https://verid.tools/fixtures/dmn12",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-dmn13.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dmn13_001",
+    "d1",
+    "dt1",
+    "ic1",
+    "oc1",
+    "r1",
+    "r2",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [],
+        "hitPolicy": "UNIQUE",
+        "id": "dt1",
+        "inputs": [
+          {
+            "id": "ic1",
+            "inputExpression": {
+              "id": "ie1",
+              "text": "score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "label": "Score",
+          },
+        ],
+        "outputs": [
+          {
+            "id": "oc1",
+            "name": "result",
+            "typeRef": "string",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [],
+            "id": "r1",
+            "inputEntries": [
+              {
+                "id": "r1ie1",
+                "text": "> 700",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r1oe1",
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "r2",
+            "inputEntries": [
+              {
+                "id": "r2ie1",
+                "text": "-",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r2oe1",
+                "text": ""rejected"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d1",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Approval",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var1",
+        "name": "Approval",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.3",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dmn13_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DMN 1.3 Model",
+  "namespace": "https://verid.tools/fixtures/dmn13",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-dmn14.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dmn14_001",
+    "d1",
+    "dt1",
+    "ic1",
+    "oc1",
+    "r1",
+    "r2",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [],
+        "hitPolicy": "UNIQUE",
+        "id": "dt1",
+        "inputs": [
+          {
+            "id": "ic1",
+            "inputExpression": {
+              "id": "ie1",
+              "text": "score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "label": "Score",
+          },
+        ],
+        "outputs": [
+          {
+            "id": "oc1",
+            "name": "result",
+            "typeRef": "string",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [],
+            "id": "r1",
+            "inputEntries": [
+              {
+                "id": "r1ie1",
+                "text": "> 700",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r1oe1",
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "r2",
+            "inputEntries": [
+              {
+                "id": "r2ie1",
+                "text": "-",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r2oe1",
+                "text": ""rejected"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d1",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Approval",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var1",
+        "name": "Approval",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.4",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dmn14_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DMN 1.4 Model",
+  "namespace": "https://verid.tools/fixtures/dmn14",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-dmn15.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dmn15_001",
+    "d1",
+    "dt1",
+    "ic1",
+    "oc1",
+    "r1",
+    "r2",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [],
+        "hitPolicy": "UNIQUE",
+        "id": "dt1",
+        "inputs": [
+          {
+            "id": "ic1",
+            "inputExpression": {
+              "id": "ie1",
+              "text": "score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "label": "Score",
+          },
+        ],
+        "outputs": [
+          {
+            "id": "oc1",
+            "name": "result",
+            "typeRef": "string",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [],
+            "id": "r1",
+            "inputEntries": [
+              {
+                "id": "r1ie1",
+                "text": "> 700",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r1oe1",
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "r2",
+            "inputEntries": [
+              {
+                "id": "r2ie1",
+                "text": "-",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r2oe1",
+                "text": ""rejected"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d1",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Approval",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var1",
+        "name": "Approval",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dmn15_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DMN 1.5 Model",
+  "namespace": "https://verid.tools/fixtures/dmn15",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-dt-2inputs.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dt_2inputs_001",
+    "d_result",
+    "dt1",
+    "ic_emp",
+    "ic_score",
+    "oc1",
+    "r1",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [],
+        "hitPolicy": "UNIQUE",
+        "id": "dt1",
+        "inputs": [
+          {
+            "id": "ic_score",
+            "inputExpression": {
+              "id": "ie_score",
+              "text": "Credit Score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "inputValues": {
+              "id": "iv_score",
+              "text": "[300..850]",
+            },
+            "label": "Credit Score",
+          },
+          {
+            "id": "ic_emp",
+            "inputExpression": {
+              "id": "ie_emp",
+              "text": "Employment Status",
+              "type": "literalExpression",
+              "typeRef": "string",
+            },
+            "inputValues": {
+              "id": "iv_emp",
+              "text": ""employed","self-employed","unemployed"",
+            },
+            "label": "Employment",
+          },
+        ],
+        "outputs": [
+          {
+            "id": "oc1",
+            "name": "result",
+            "typeRef": "string",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [],
+            "id": "r1",
+            "inputEntries": [
+              {
+                "id": "r1_ie1",
+                "text": "> 700",
+              },
+              {
+                "id": "r1_ie2",
+                "text": ""employed","self-employed"",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r1_oe1",
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d_result",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Result",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_result",
+        "name": "Result",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dt_2inputs_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DT 2 Inputs",
+  "namespace": "https://verid.tools/fixtures/dt-2inputs",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-dt-annotation.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dt_ann_001",
+    "d_ann",
+    "dt_ann",
+    "ic1",
+    "oc1",
+    "r1",
+    "r2",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [
+          {
+            "name": "Regulatory Ref",
+          },
+          {
+            "name": "Test Case",
+          },
+        ],
+        "hitPolicy": "UNIQUE",
+        "id": "dt_ann",
+        "inputs": [
+          {
+            "id": "ic1",
+            "inputExpression": {
+              "id": "ie1",
+              "text": "score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "label": "Score",
+          },
+        ],
+        "outputs": [
+          {
+            "id": "oc1",
+            "name": "result",
+            "typeRef": "string",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [
+              {
+                "text": "Bacen 3954 §4",
+              },
+              {
+                "text": "TC-001",
+              },
+            ],
+            "id": "r1",
+            "inputEntries": [
+              {
+                "id": "r1_ie1",
+                "text": "> 700",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r1_oe1",
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [
+              {
+                "text": "Bacen 3954 §6",
+              },
+              {
+                "text": "TC-002",
+              },
+            ],
+            "id": "r2",
+            "inputEntries": [
+              {
+                "id": "r2_ie1",
+                "text": "[500..700]",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r2_oe1",
+                "text": ""manual"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d_ann",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Annotated Decision",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_ann",
+        "name": "Annotated Decision",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dt_ann_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DT Annotation",
+  "namespace": "https://verid.tools/fixtures/dt-annotation",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-dt-multioutput.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dt_multi_001",
+    "d_multi",
+    "dt_multi",
+    "ic1",
+    "oc_decision",
+    "oc_limit",
+    "r1",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [],
+        "hitPolicy": "UNIQUE",
+        "id": "dt_multi",
+        "inputs": [
+          {
+            "id": "ic1",
+            "inputExpression": {
+              "id": "ie1",
+              "text": "score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "label": "Score",
+          },
+        ],
+        "outputs": [
+          {
+            "id": "oc_decision",
+            "label": "Decision",
+            "name": "decision",
+            "outputValues": {
+              "id": "ov_decision",
+              "text": ""approved","manual","rejected"",
+            },
+            "typeRef": "string",
+          },
+          {
+            "id": "oc_limit",
+            "label": "Credit Limit",
+            "name": "creditLimit",
+            "typeRef": "number",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [],
+            "id": "r1",
+            "inputEntries": [
+              {
+                "id": "r1_ie1",
+                "text": "> 700",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r1_oe1",
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+              {
+                "id": "r1_oe2",
+                "text": "50000",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d_multi",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Multi Output Decision",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_multi",
+        "name": "Multi Output Decision",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dt_multi_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DT Multi Output",
+  "namespace": "https://verid.tools/fixtures/dt-multioutput",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-dt-rules.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dt_rules_001",
+    "d_rules",
+    "dt_rules",
+    "ic_emp",
+    "ic_score",
+    "oc_result",
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [],
+        "hitPolicy": "FIRST",
+        "id": "dt_rules",
+        "inputs": [
+          {
+            "id": "ic_score",
+            "inputExpression": {
+              "id": "ie_score",
+              "text": "score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "label": "Score",
+          },
+          {
+            "id": "ic_emp",
+            "inputExpression": {
+              "id": "ie_emp",
+              "text": "employment",
+              "type": "literalExpression",
+              "typeRef": "string",
+            },
+            "label": "Employment",
+          },
+        ],
+        "outputs": [
+          {
+            "id": "oc_result",
+            "name": "result",
+            "typeRef": "string",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [],
+            "description": "Auto-approved premium clients",
+            "id": "r1",
+            "inputEntries": [
+              {
+                "id": "r1_ie1",
+                "text": "> 750",
+              },
+              {
+                "id": "r1_ie2",
+                "text": ""employed"",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r1_oe1",
+                "text": ""auto-approved"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "r2",
+            "inputEntries": [
+              {
+                "id": "r2_ie1",
+                "text": "[600..750]",
+              },
+              {
+                "id": "r2_ie2",
+                "text": ""employed","self-employed"",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r2_oe1",
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "r3",
+            "inputEntries": [
+              {
+                "id": "r3_ie1",
+                "text": "[400..600)",
+              },
+              {
+                "id": "r3_ie2",
+                "text": "-",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r3_oe1",
+                "text": ""manual-review"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "r4",
+            "inputEntries": [
+              {
+                "id": "r4_ie1",
+                "text": "-",
+              },
+              {
+                "id": "r4_ie2",
+                "text": ""unemployed"",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r4_oe1",
+                "text": ""manual-review"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "r5",
+            "inputEntries": [
+              {
+                "id": "r5_ie1",
+                "text": "< 400",
+              },
+              {
+                "id": "r5_ie2",
+                "text": "-",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r5_oe1",
+                "text": ""rejected"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d_rules",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Credit Decision",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_rules",
+        "name": "Credit Decision",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dt_rules_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DT Rules",
+  "namespace": "https://verid.tools/fixtures/dt-rules",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-dt-unique.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dt_unique_001",
+    "d_approval",
+    "dt_approval",
+    "ic_score",
+    "id_score",
+    "oc_decision",
+    "rule_1",
+    "rule_2",
+    "rule_3",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [],
+        "hitPolicy": "UNIQUE",
+        "id": "dt_approval",
+        "inputs": [
+          {
+            "id": "ic_score",
+            "inputExpression": {
+              "id": "ie_score",
+              "text": "Credit Score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "label": "Credit Score",
+          },
+        ],
+        "outputs": [
+          {
+            "id": "oc_decision",
+            "label": "Decision",
+            "name": "decision",
+            "typeRef": "string",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [],
+            "id": "rule_1",
+            "inputEntries": [
+              {
+                "id": "ie_1",
+                "text": "> 700",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "oe_1",
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "rule_2",
+            "inputEntries": [
+              {
+                "id": "ie_2",
+                "text": "[500..700]",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "oe_2",
+                "text": ""manual"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "rule_3",
+            "inputEntries": [
+              {
+                "id": "ie_3",
+                "text": "< 500",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "oe_3",
+                "text": ""rejected"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d_approval",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [
+        {
+          "id": "ir_score",
+          "requiredInput": {
+            "href": "#id_score",
+          },
+        },
+      ],
+      "knowledgeRequirements": [],
+      "name": "Loan Approval",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_approval",
+        "name": "Loan Approval",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dt_unique_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id_score",
+      "name": "Credit Score",
+      "variable": {
+        "id": "var_score",
+        "name": "Credit Score",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DT Unique",
+  "namespace": "https://verid.tools/fixtures/dt-unique",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-element-collection.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_ec_001",
+    "d1",
+    "d2",
+    "ec_credit",
+    "id1",
+    "le1",
+    "le2",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le1",
+        "text": ""result1"",
+        "type": "literalExpression",
+      },
+      "id": "d1",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "D1",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_d1",
+        "name": "D1",
+        "typeRef": "string",
+      },
+    },
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le2",
+        "text": ""result2"",
+        "type": "literalExpression",
+      },
+      "id": "d2",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "D2",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_d2",
+        "name": "D2",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [
+    {
+      "drgElements": [
+        {
+          "href": "#d1",
+        },
+        {
+          "href": "#d2",
+        },
+        {
+          "href": "#id1",
+        },
+      ],
+      "id": "ec_credit",
+      "name": "Credit Assessment",
+    },
+  ],
+  "groups": [],
+  "id": "_ec_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id1",
+      "name": "Input1",
+      "variable": {
+        "id": "var_id1",
+        "name": "Input1",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Element Collection Model",
+  "namespace": "https://verid.tools/fixtures/element-collection",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-extension-elements.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_ext_001",
+    "d_ext",
+    "le_ext",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le_ext",
+        "text": ""approved"",
+        "type": "literalExpression",
+      },
+      "id": "d_ext",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Extended Decision",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_ext",
+        "name": "Extended Decision",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_ext_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Extension Elements Model",
+  "namespace": "https://verid.tools/fixtures/extension-elements",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-filter.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_filter_001",
+    "d_filter",
+    "filt1",
+    "filt_in",
+    "filt_match",
+    "id_all_customers",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "filt1",
+        "in": {
+          "id": "filt_in",
+          "text": "All Customers",
+          "type": "literalExpression",
+        },
+        "match": {
+          "id": "filt_match",
+          "text": "item.loyaltyStatus = "Gold"",
+          "type": "literalExpression",
+        },
+        "type": "filter",
+      },
+      "id": "d_filter",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [
+        {
+          "id": "ir_filter",
+          "requiredInput": {
+            "href": "#id_all_customers",
+          },
+        },
+      ],
+      "knowledgeRequirements": [],
+      "name": "Gold Customers",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_filter",
+        "name": "Gold Customers",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_filter_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id_all_customers",
+      "name": "All Customers",
+      "variable": {
+        "id": "var_all_customers",
+        "name": "All Customers",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Filter Model",
+  "namespace": "https://verid.tools/fixtures/filter",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-group.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_grp_001",
+    "d1",
+    "d2",
+    "grp_assessment",
+    "grp_input",
+    "id1",
+    "le1",
+    "le2",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le1",
+        "text": ""low"",
+        "type": "literalExpression",
+      },
+      "id": "d1",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Risk Assessment",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_d1",
+        "name": "Risk Assessment",
+        "typeRef": "string",
+      },
+    },
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le2",
+        "text": "750",
+        "type": "literalExpression",
+      },
+      "id": "d2",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Credit Score",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_d2",
+        "name": "Credit Score",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [
+    {
+      "id": "grp_assessment",
+      "name": "Risk Assessment Group",
+    },
+    {
+      "id": "grp_input",
+      "name": "Input Data Group",
+    },
+  ],
+  "id": "_grp_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id1",
+      "name": "Applicant Data",
+      "variable": {
+        "id": "var_id1",
+        "name": "Applicant Data",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Group Model",
+  "namespace": "https://verid.tools/fixtures/group",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-import-no-namespace.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_imp_ns_001",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_imp_ns_001",
+  "imports": [
+    {
+      "id": "imp_local",
+      "importType": "https://www.omg.org/spec/DMN/20230324/MODEL/",
+      "locationURI": "risk-scoring@1.4.0",
+      "name": "riskScoring",
+    },
+  ],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Import No Namespace",
+  "namespace": "https://verid.tools/fixtures/import-no-namespace",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-imports.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_imp_001",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_imp_001",
+  "imports": [
+    {
+      "id": "imp_risk",
+      "importType": "https://www.omg.org/spec/DMN/20230324/MODEL/",
+      "locationURI": "risk-scoring@1.4.0",
+      "name": "riskScoring",
+      "namespace": "https://verid.tools/models/risk-scoring",
+    },
+    {
+      "id": "imp_pmml",
+      "importType": "https://www.dmg.org/PMML-4_4",
+      "locationURI": "fraud-model.pmml",
+      "name": "fraudModel",
+      "namespace": "https://verid.tools/models/fraud-detection",
+    },
+  ],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Import Model",
+  "namespace": "https://verid.tools/fixtures/imports",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-input-data.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_input_001",
+    "id_amount",
+    "id_employment",
+    "id_score",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_input_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id_score",
+      "name": "Credit Score",
+      "variable": {
+        "id": "var_score",
+        "name": "Credit Score",
+        "typeRef": "number",
+      },
+    },
+    {
+      "id": "id_employment",
+      "name": "Employment Status",
+      "variable": {
+        "id": "var_employment",
+        "name": "Employment Status",
+        "typeRef": "string",
+      },
+    },
+    {
+      "id": "id_amount",
+      "name": "Loan Amount",
+      "variable": {
+        "id": "var_amount",
+        "name": "Loan Amount",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Input Data Model",
+  "namespace": "https://verid.tools/fixtures/input-data",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-invocation.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_inv_001",
+    "b1",
+    "b2",
+    "bkm_risk",
+    "d_invoke",
+    "fd_risk",
+    "inv1",
+    "le_b1",
+    "le_b2",
+    "le_callee",
+    "le_risk_body",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [
+    {
+      "authorityRequirements": [],
+      "encapsulatedLogic": {
+        "expression": {
+          "id": "le_risk_body",
+          "text": "credit score * 0.9",
+          "type": "literalExpression",
+        },
+        "formalParameters": [
+          {
+            "id": "fp_score",
+            "name": "credit score",
+            "typeRef": "number",
+          },
+          {
+            "id": "fp_history",
+            "name": "payment history",
+            "typeRef": "string",
+          },
+        ],
+        "id": "fd_risk",
+        "kind": "FEEL",
+        "type": "functionDefinition",
+      },
+      "id": "bkm_risk",
+      "knowledgeRequirements": [],
+      "name": "Calculate Risk Score",
+      "variable": {
+        "id": "var_bkm_risk",
+        "name": "Calculate Risk Score",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "bindings": [
+          {
+            "expression": {
+              "id": "le_b1",
+              "text": "applicant.score",
+              "type": "literalExpression",
+            },
+            "id": "b1",
+            "parameter": {
+              "id": "param1",
+              "name": "credit score",
+            },
+          },
+          {
+            "expression": {
+              "id": "le_b2",
+              "text": "applicant.paymentHistory",
+              "type": "literalExpression",
+            },
+            "id": "b2",
+            "parameter": {
+              "id": "param2",
+              "name": "payment history",
+            },
+          },
+        ],
+        "callee": {
+          "id": "le_callee",
+          "text": "Calculate Risk Score",
+          "type": "literalExpression",
+        },
+        "id": "inv1",
+        "type": "invocation",
+      },
+      "id": "d_invoke",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [
+        {
+          "id": "kr1",
+          "requiredKnowledge": {
+            "href": "#bkm_risk",
+          },
+        },
+      ],
+      "name": "Risk Assessment",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_invoke",
+        "name": "Risk Assessment",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_inv_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Invocation Model",
+  "namespace": "https://verid.tools/fixtures/invocation",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-iscollection-marker.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_iscoll_001",
+    "d_avg",
+    "id_scores",
+    "le_avg",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le_avg",
+        "text": "mean(Scores)",
+        "type": "literalExpression",
+      },
+      "id": "d_avg",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [
+        {
+          "id": "ir_avg",
+          "requiredInput": {
+            "href": "#id_scores",
+          },
+        },
+      ],
+      "knowledgeRequirements": [],
+      "name": "Average Score",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_avg",
+        "name": "Average Score",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_iscoll_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id_scores",
+      "name": "Scores",
+      "variable": {
+        "id": "var_scores",
+        "name": "Scores",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "isCollection Marker",
+  "namespace": "https://verid.tools/fixtures/iscollection",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-item-definitions.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_td_001",
+    "ic_employment",
+    "ic_name",
+    "ic_score",
+    "tApplicant",
+    "tApplicantList",
+    "tRisk",
+    "tScore",
+    "tScoreList",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_td_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [
+    {
+      "allowedValues": {
+        "id": "av_risk",
+        "text": ""low","medium","high"",
+      },
+      "id": "tRisk",
+      "isCollection": false,
+      "itemComponents": [],
+      "name": "tRisk",
+      "typeRef": "string",
+    },
+    {
+      "allowedValues": {
+        "id": "av_score",
+        "text": "[300..850]",
+      },
+      "id": "tScore",
+      "isCollection": false,
+      "itemComponents": [],
+      "name": "tScore",
+      "typeRef": "number",
+    },
+    {
+      "id": "tScoreList",
+      "isCollection": true,
+      "itemComponents": [],
+      "name": "tScoreList",
+      "typeRef": "number",
+    },
+    {
+      "id": "tApplicant",
+      "isCollection": false,
+      "itemComponents": [
+        {
+          "id": "ic_name",
+          "isCollection": false,
+          "itemComponents": [],
+          "name": "name",
+          "typeRef": "string",
+        },
+        {
+          "id": "ic_score",
+          "isCollection": false,
+          "itemComponents": [],
+          "name": "score",
+          "typeRef": "tScore",
+        },
+        {
+          "allowedValues": {
+            "id": "av_emp",
+            "text": ""employed","self-employed","unemployed"",
+          },
+          "id": "ic_employment",
+          "isCollection": false,
+          "itemComponents": [],
+          "name": "employment",
+          "typeRef": "string",
+        },
+      ],
+      "name": "tApplicant",
+    },
+    {
+      "id": "tApplicantList",
+      "isCollection": true,
+      "itemComponents": [],
+      "name": "tApplicantList",
+      "typeRef": "tApplicant",
+    },
+  ],
+  "knowledgeSources": [],
+  "name": "Item Definitions",
+  "namespace": "https://verid.tools/fixtures/item-definitions",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-iterator-every.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_iter_every_001",
+    "d_iter_every",
+    "id_scores",
+    "iter_every",
+    "iter_in",
+    "iter_sat",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "iter_every",
+        "in": {
+          "id": "iter_in",
+          "text": "scores",
+          "type": "literalExpression",
+        },
+        "iteratorType": "every",
+        "iteratorVariable": "x",
+        "satisfies": {
+          "id": "iter_sat",
+          "text": "x > 500",
+          "type": "literalExpression",
+        },
+        "type": "iterator",
+      },
+      "id": "d_iter_every",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [
+        {
+          "id": "ir_iter_every",
+          "requiredInput": {
+            "href": "#id_scores",
+          },
+        },
+      ],
+      "knowledgeRequirements": [],
+      "name": "All Pass",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_iter_every",
+        "name": "All Pass",
+        "typeRef": "boolean",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_iter_every_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id_scores",
+      "name": "scores",
+      "variable": {
+        "id": "var_scores",
+        "name": "scores",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Iterator Every Model",
+  "namespace": "https://verid.tools/fixtures/iterator-every",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-iterator-for.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_iter_for_001",
+    "d_iter_for",
+    "id_customers",
+    "iter_for",
+    "iter_in",
+    "iter_return",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "iter_for",
+        "in": {
+          "id": "iter_in",
+          "text": "customers",
+          "type": "literalExpression",
+        },
+        "iteratorType": "for",
+        "iteratorVariable": "customer",
+        "return": {
+          "id": "iter_return",
+          "text": "customer.score * 0.9",
+          "type": "literalExpression",
+        },
+        "type": "iterator",
+      },
+      "id": "d_iter_for",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [
+        {
+          "id": "ir_iter",
+          "requiredInput": {
+            "href": "#id_customers",
+          },
+        },
+      ],
+      "knowledgeRequirements": [],
+      "name": "Adjusted Scores",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_iter_for",
+        "name": "Adjusted Scores",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_iter_for_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id_customers",
+      "name": "customers",
+      "variable": {
+        "id": "var_customers",
+        "name": "customers",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Iterator For Model",
+  "namespace": "https://verid.tools/fixtures/iterator-for",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-iterator-some.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_iter_some_001",
+    "d_iter_some",
+    "id_scores",
+    "iter_in",
+    "iter_sat",
+    "iter_some",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "iter_some",
+        "in": {
+          "id": "iter_in",
+          "text": "scores",
+          "type": "literalExpression",
+        },
+        "iteratorType": "some",
+        "iteratorVariable": "x",
+        "satisfies": {
+          "id": "iter_sat",
+          "text": "x > 700",
+          "type": "literalExpression",
+        },
+        "type": "iterator",
+      },
+      "id": "d_iter_some",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [
+        {
+          "id": "ir_iter_some",
+          "requiredInput": {
+            "href": "#id_scores",
+          },
+        },
+      ],
+      "knowledgeRequirements": [],
+      "name": "Any High Score",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_iter_some",
+        "name": "Any High Score",
+        "typeRef": "boolean",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_iter_some_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id_scores",
+      "name": "scores",
+      "variable": {
+        "id": "var_scores",
+        "name": "scores",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Iterator Some Model",
+  "namespace": "https://verid.tools/fixtures/iterator-some",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-knowledge-source.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_ks_001",
+    "ks_policy",
+    "ks_regulation",
+    "ou_alt",
+    "ou_credit",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_ks_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [
+    {
+      "authorityRequirements": [],
+      "description": "Internal credit risk policy v3.2",
+      "id": "ks_policy",
+      "locationURI": "https://internal.company.com/policies/credit-v3.2.pdf",
+      "name": "Credit Policy",
+      "owner": {
+        "href": "#ou_credit",
+      },
+    },
+    {
+      "authorityRequirements": [],
+      "id": "ks_regulation",
+      "locationURI": "https://www.bcb.gov.br/normativos/circular/3954",
+      "name": "Bacen Circular 3954",
+    },
+  ],
+  "name": "Knowledge Source Model",
+  "namespace": "https://verid.tools/fixtures/knowledge-source",
+  "organizationUnits": [
+    {
+      "decisionMade": [],
+      "decisionOwned": [],
+      "id": "ou_credit",
+      "name": "Credit Department",
+    },
+    {
+      "decisionMade": [],
+      "decisionOwned": [],
+      "id": "ou_alt",
+      "name": "Alt Department",
+    },
+  ],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-list.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_list_001",
+    "d_list",
+    "item1",
+    "item2",
+    "item3",
+    "list1",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "elements": [
+          {
+            "id": "item1",
+            "text": ""premium"",
+            "type": "literalExpression",
+          },
+          {
+            "id": "item2",
+            "text": ""standard"",
+            "type": "literalExpression",
+          },
+          {
+            "id": "item3",
+            "text": ""basic"",
+            "type": "literalExpression",
+          },
+        ],
+        "id": "list1",
+        "type": "list",
+      },
+      "id": "d_list",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Approved Categories",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_list",
+        "name": "Approved Categories",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_list_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "List Expression",
+  "namespace": "https://verid.tools/fixtures/list",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-literal-expression.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_le_001",
+    "d_calc",
+    "le_calc",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le_calc",
+        "text": "principal * (rate / 12) / (1 - (1 + rate / 12) ** (-months))",
+        "type": "literalExpression",
+        "typeRef": "number",
+      },
+      "id": "d_calc",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Monthly Payment",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_calc",
+        "name": "Monthly Payment",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_le_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Literal Expression",
+  "namespace": "https://verid.tools/fixtures/literal-expression",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-no-ids.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_noid_001",
+    "d_noid",
+    "dt_noid",
+    "ic1",
+    "oc1",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [],
+        "hitPolicy": "UNIQUE",
+        "id": "dt_noid",
+        "inputs": [
+          {
+            "id": "ic1",
+            "inputExpression": {
+              "id": "ie1",
+              "text": "score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "label": "Score",
+          },
+        ],
+        "outputs": [
+          {
+            "id": "oc1",
+            "name": "result",
+            "typeRef": "string",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [],
+            "inputEntries": [
+              {
+                "text": "> 700",
+              },
+            ],
+            "outputEntries": [
+              {
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "inputEntries": [
+              {
+                "text": "[500..700]",
+              },
+            ],
+            "outputEntries": [
+              {
+                "text": ""manual"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "inputEntries": [
+              {
+                "text": "< 500",
+              },
+            ],
+            "outputEntries": [
+              {
+                "text": ""rejected"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d_noid",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "No ID Decision",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_noid",
+        "name": "No ID Decision",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_noid_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "No IDs Model",
+  "namespace": "https://verid.tools/fixtures/no-ids",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-relation.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_rel_001",
+    "d_table",
+    "r1c1",
+    "r1c2",
+    "r1c3",
+    "r2c1",
+    "r2c2",
+    "r2c3",
+    "rel1",
+    "row1",
+    "row2",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "columns": [
+          {
+            "id": "col_category",
+            "name": "category",
+            "typeRef": "string",
+          },
+          {
+            "id": "col_rate",
+            "name": "rate",
+            "typeRef": "number",
+          },
+          {
+            "id": "col_limit",
+            "name": "limit",
+            "typeRef": "number",
+          },
+        ],
+        "id": "rel1",
+        "rows": [
+          {
+            "elements": [
+              {
+                "id": "r1c1",
+                "text": ""premium"",
+                "type": "literalExpression",
+              },
+              {
+                "id": "r1c2",
+                "text": "0.05",
+                "type": "literalExpression",
+              },
+              {
+                "id": "r1c3",
+                "text": "100000",
+                "type": "literalExpression",
+              },
+            ],
+            "id": "row1",
+          },
+          {
+            "elements": [
+              {
+                "id": "r2c1",
+                "text": ""standard"",
+                "type": "literalExpression",
+              },
+              {
+                "id": "r2c2",
+                "text": "0.08",
+                "type": "literalExpression",
+              },
+              {
+                "id": "r2c3",
+                "text": "50000",
+                "type": "literalExpression",
+              },
+            ],
+            "id": "row2",
+          },
+        ],
+        "type": "relation",
+      },
+      "id": "d_table",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Rate Table",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_table",
+        "name": "Rate Table",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_rel_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Relation Expression",
+  "namespace": "https://verid.tools/fixtures/relation",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-requirements.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_req_001",
+    "bkm_calc",
+    "d_final",
+    "d_risk",
+    "fd_calc",
+    "id_income",
+    "id_score",
+    "ks_alt",
+    "ks_policy",
+    "le1",
+    "le_calc_body",
+    "le_risk",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [
+    {
+      "authorityRequirements": [],
+      "encapsulatedLogic": {
+        "expression": {
+          "id": "le_calc_body",
+          "text": "0",
+          "type": "literalExpression",
+        },
+        "formalParameters": [],
+        "id": "fd_calc",
+        "kind": "FEEL",
+        "type": "functionDefinition",
+      },
+      "id": "bkm_calc",
+      "knowledgeRequirements": [],
+      "name": "Calculate Score",
+      "variable": {
+        "id": "var_bkm",
+        "name": "Calculate Score",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le_risk",
+        "text": ""low"",
+        "type": "literalExpression",
+      },
+      "id": "d_risk",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Risk Assessment",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_risk",
+        "name": "Risk Assessment",
+        "typeRef": "string",
+      },
+    },
+    {
+      "authorityRequirements": [
+        {
+          "id": "ar1",
+          "requiredAuthority": {
+            "href": "#ks_policy",
+          },
+        },
+      ],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le1",
+        "text": ""approved"",
+        "type": "literalExpression",
+      },
+      "id": "d_final",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [
+        {
+          "id": "ir1",
+          "requiredInput": {
+            "href": "#id_score",
+          },
+        },
+        {
+          "id": "ir2",
+          "requiredDecision": {
+            "href": "#d_risk",
+          },
+        },
+      ],
+      "knowledgeRequirements": [
+        {
+          "id": "kr1",
+          "requiredKnowledge": {
+            "href": "#bkm_calc",
+          },
+        },
+      ],
+      "name": "Final Decision",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_final",
+        "name": "Final Decision",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_req_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id_score",
+      "name": "Credit Score",
+      "variable": {
+        "id": "var_score",
+        "name": "Credit Score",
+        "typeRef": "number",
+      },
+    },
+    {
+      "id": "id_income",
+      "name": "Income",
+      "variable": {
+        "id": "var_income",
+        "name": "Income",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [
+    {
+      "authorityRequirements": [],
+      "id": "ks_policy",
+      "locationURI": "https://internal.company.com/policies/credit.pdf",
+      "name": "Credit Policy",
+    },
+    {
+      "authorityRequirements": [],
+      "id": "ks_alt",
+      "locationURI": "https://internal.company.com/policies/alt.pdf",
+      "name": "Alt Policy",
+    },
+  ],
+  "name": "Requirements Model",
+  "namespace": "https://verid.tools/fixtures/requirements",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-transitive-imports.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_trans_001",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_trans_001",
+  "imports": [
+    {
+      "id": "imp_b",
+      "importType": "https://www.omg.org/spec/DMN/20230324/MODEL/",
+      "locationURI": "model-b@1.0.0",
+      "name": "modelB",
+      "namespace": "https://verid.tools/fixtures/transitive-b",
+    },
+  ],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Transitive Imports Model A",
+  "namespace": "https://verid.tools/fixtures/transitive-a",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-typeconstraint.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_tc_001",
+    "tRisk",
+    "tScore",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_tc_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [
+    {
+      "id": "tScore",
+      "isCollection": false,
+      "itemComponents": [],
+      "name": "tScore",
+      "typeConstraint": {
+        "id": "tc_score",
+        "text": "[300..850]",
+      },
+      "typeRef": "number",
+    },
+    {
+      "id": "tRisk",
+      "isCollection": false,
+      "itemComponents": [],
+      "name": "tRisk",
+      "typeConstraint": {
+        "id": "tc_risk",
+        "text": ""low","medium","high"",
+      },
+      "typeRef": "string",
+    },
+  ],
+  "knowledgeSources": [],
+  "name": "TypeConstraint Model",
+  "namespace": "https://verid.tools/fixtures/typeconstraint",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-with-dmndi.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dmndi_001",
+    "d1",
+    "id1",
+    "le1",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le1",
+        "text": ""result"",
+        "type": "literalExpression",
+      },
+      "id": "d1",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [
+        {
+          "id": "ir1",
+          "requiredInput": {
+            "href": "#id1",
+          },
+        },
+      ],
+      "knowledgeRequirements": [],
+      "name": "D1",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_d1",
+        "name": "D1",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dmndi_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id1",
+      "name": "Input",
+      "variable": {
+        "id": "var_id1",
+        "name": "Input",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DMNDI Model",
+  "namespace": "https://verid.tools/fixtures/dmndi",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
