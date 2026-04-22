@@ -12,7 +12,7 @@ The parser applies several normalizations before mapping to the typed model. Thi
 |---|---|---|
 | `@hitPolicy` | `UNIQUE` | `decisionTable` |
 | `@preferredOrientation` | `Rule-as-Row` | `decisionTable` |
-| `@isCollection` | `false` | `itemDefinition`, `itemComponent` |
+| `@isCollection` | `false` | `itemDefinition`, `itemComponent`, `inputData` |
 | `@textFormat` | `text/plain` | `textAnnotation` |
 | `@associationDirection` | `None` | `association` |
 | `@kind` | `FEEL` | `functionDefinition`, `encapsulatedLogic` |

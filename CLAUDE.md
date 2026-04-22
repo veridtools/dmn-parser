@@ -110,8 +110,8 @@ The CLI bundles `fast-xml-parser` (`noExternal: ['fast-xml-parser']` in tsup con
 | `hitPolicy` absent | `"UNIQUE"` |
 | `hitPolicy="unique"` | `"UNIQUE"` (uppercase) |
 | `preferredOrientation` absent | `"Rule-as-Row"` |
-| `isCollection="false"` | `false` (boolean) |
-| `isCollection="true"` | `true` (boolean) |
+| `isCollection="false"` | `false` (boolean) — `itemDefinition`, `itemComponent`, `inputData` |
+| `isCollection="true"` | `true` (boolean) — `itemDefinition`, `itemComponent`, `inputData` |
 | Empty `<inputEntry>` text | `"-"` (wildcard) |
 | CDATA `<![CDATA[> 5]]>` | `&gt; 5` (via preprocessXml) |
 | BOM `﻿` | removed |
@@ -120,6 +120,7 @@ The CLI bundles `fast-xml-parser` (`noExternal: ['fast-xml-parser']` in tsup con
 | `kind` absent on functionDefinition | `"FEEL"` |
 | `textFormat` absent | `"text/plain"` |
 | `associationDirection` absent | `"None"` |
+| `KnowledgeSource` `<type>` child element | promoted to `type` field (also reads `@type` attribute) |
 
 ### Changeset and commit conventions
 

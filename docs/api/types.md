@@ -71,6 +71,25 @@ type IteratorType = 'for' | 'some' | 'every'
 type AssociationDirection = 'None' | 'One' | 'Both'
 ```
 
+## LiteralExpression
+
+```typescript
+interface LiteralExpression {
+  type: 'literalExpression'
+  id?: string
+  typeRef?: string
+  expressionLanguage?: string
+  text?: string
+  importedValues?: ImportedValues
+}
+
+interface ImportedValues {
+  id?: string
+  importedElement?: string
+  expressionLanguage?: string
+}
+```
+
 ## DecisionTable
 
 ```typescript
@@ -84,6 +103,62 @@ interface DecisionTable {
   outputs: OutputClause[]
   rules: Rule[]
   annotations: AnnotationClause[]
+}
+```
+
+## InputClause / OutputClause
+
+```typescript
+interface InputClause {
+  id?: string
+  label?: string
+  inputExpression: LiteralExpression
+  inputValues?: UnaryTests
+}
+
+interface OutputClause {
+  id?: string
+  name?: string
+  label?: string
+  outputLabel?: string
+  typeRef?: string
+  outputValues?: UnaryTests
+  defaultOutputEntry?: LiteralExpression
+}
+```
+
+## InputData
+
+```typescript
+interface InputData extends DMNElement {
+  name: string
+  description?: string
+  isCollection?: boolean
+  variable?: InformationItem
+}
+```
+
+## KnowledgeSource
+
+```typescript
+interface KnowledgeSource extends DMNElement {
+  name: string
+  description?: string
+  type?: string        // read from <type> child element or @type attribute
+  locationURI?: string
+  owner?: DMNElementRef
+  authorityRequirements: AuthorityRequirement[]
+}
+```
+
+## PerformanceIndicator
+
+```typescript
+interface PerformanceIndicator extends DMNElement {
+  name: string
+  description?: string
+  URI?: string         // maps to XML attribute URI="..."
+  impactingDecisions: DMNElementRef[]
 }
 ```
 
