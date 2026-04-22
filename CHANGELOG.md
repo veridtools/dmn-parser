@@ -1,5 +1,11 @@
 # @veridtools/dmn-parser
 
+## 0.2.1
+
+### Patch Changes
+
+- 1656b87: chore: update dmn-fixtures
+
 ## 0.2.0
 
 ### Minor Changes
