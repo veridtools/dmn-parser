@@ -28,8 +28,8 @@ importers:
         specifier: ^20.0.0
         version: 20.19.39
       '@veridtools/dmn-fixtures':
-        specifier: ^0.2.1
-        version: 0.2.1
+        specifier: ^0.3.0
+        version: 0.3.0
       husky:
         specifier: ^9.0.0
         version: 9.1.7
@@ -897,8 +897,8 @@ packages:
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
 
-  '@veridtools/dmn-fixtures@0.2.1':
-    resolution: {integrity: sha512-mVQ0shOQNQkWVkrq7QqE+ttdfrYusMrhl+X6rli5Zqw5ygulSRoxiGoRCLdtpT1Y3tHo477evgcdIBZe8w8qJQ==}
+  '@veridtools/dmn-fixtures@0.3.0':
+    resolution: {integrity: sha512-xCc8M0Qsk7tuSRQf7of6zA31njd5GvCAaRAI7irVzHQyGBuLm4TA5Xj1rZWRW8cJjkCkhXkXa0DdMRxBkSe07w==}
     engines: {node: '>=22'}
 
   '@vitejs/plugin-vue@5.2.4':
@@ -3064,7 +3064,7 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@veridtools/dmn-fixtures@0.2.1': {}
+  '@veridtools/dmn-fixtures@0.3.0': {}
 
   '@vitejs/plugin-vue@5.2.4(vite@5.4.21(@types/node@20.19.39))(vue@3.5.32(typescript@5.9.3))':
     dependencies:

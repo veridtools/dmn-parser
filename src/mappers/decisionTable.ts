@@ -58,6 +58,8 @@ function mapOutputClause(r: Record<string, unknown>, ctx: MapContext): OutputCla
   if (name !== undefined) el.name = name;
   const label = asStr(r['@label']);
   if (label !== undefined) el.label = label;
+  const outputLabel = asStr(r['@outputLabel']);
+  if (outputLabel !== undefined) el.outputLabel = outputLabel;
   const typeRef = asStr(r['@typeRef']);
   if (typeRef !== undefined) el.typeRef = typeRef;
   if (r.outputValues) el.outputValues = mapUnaryTests(r.outputValues);

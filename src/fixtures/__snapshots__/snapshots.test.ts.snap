@@ -300,6 +300,7 @@ exports[`base fixture snapshots > base/base-business-context.dmn 1`] = `
   ],
   "performanceIndicators": [
     {
+      "URI": "https://kpi.company/credit-revenue",
       "id": "pi_revenue",
       "impactingDecisions": [
         {
@@ -2292,6 +2293,156 @@ exports[`base fixture snapshots > base/base-group.dmn 1`] = `
 }
 `;
 
+exports[`base fixture snapshots > base/base-hp-with-outputlabel.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dt_unique_001",
+    "d_approval",
+    "dt_approval",
+    "ic_score",
+    "id_score",
+    "oc_decision",
+    "rule_1",
+    "rule_2",
+    "rule_3",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [],
+        "hitPolicy": "UNIQUE",
+        "id": "dt_approval",
+        "inputs": [
+          {
+            "id": "ic_score",
+            "inputExpression": {
+              "id": "ie_score",
+              "text": "Credit Score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "label": "Credit Score",
+          },
+        ],
+        "outputs": [
+          {
+            "id": "oc_decision",
+            "label": "Decision",
+            "name": "decision",
+            "outputLabel": "Loan Decision",
+            "typeRef": "string",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [],
+            "id": "rule_1",
+            "inputEntries": [
+              {
+                "id": "ie_1",
+                "text": "> 700",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "oe_1",
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "rule_2",
+            "inputEntries": [
+              {
+                "id": "ie_2",
+                "text": "[500..700]",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "oe_2",
+                "text": ""manual"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+          {
+            "annotationEntries": [],
+            "id": "rule_3",
+            "inputEntries": [
+              {
+                "id": "ie_3",
+                "text": "< 500",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "oe_3",
+                "text": ""rejected"",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d_approval",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [
+        {
+          "id": "ir_score",
+          "requiredInput": {
+            "href": "#id_score",
+          },
+        },
+      ],
+      "knowledgeRequirements": [],
+      "name": "Loan Approval",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_approval",
+        "name": "Loan Approval",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dt_unique_001",
+  "imports": [],
+  "inputData": [
+    {
+      "id": "id_score",
+      "name": "Credit Score",
+      "variable": {
+        "id": "var_score",
+        "name": "Credit Score",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DT Unique",
+  "namespace": "https://verid.tools/fixtures/dt-unique",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
 exports[`base fixture snapshots > base/base-import-no-namespace.dmn 1`] = `
 {
   "_indexKeys": [
@@ -2601,6 +2752,7 @@ exports[`base fixture snapshots > base/base-iscollection-marker.dmn 1`] = `
   "inputData": [
     {
       "id": "id_scores",
+      "isCollection": true,
       "name": "Scores",
       "variable": {
         "id": "var_scores",
@@ -2997,6 +3149,7 @@ exports[`base fixture snapshots > base/base-knowledge-source.dmn 1`] = `
       "owner": {
         "href": "#ou_credit",
       },
+      "type": "Internal Policy",
     },
     {
       "authorityRequirements": [],
@@ -3021,6 +3174,63 @@ exports[`base fixture snapshots > base/base-knowledge-source.dmn 1`] = `
       "name": "Alt Department",
     },
   ],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-le-importedvalues.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_le_001",
+    "d_calc",
+    "iv_calc",
+    "le_calc",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "id": "le_calc",
+        "importedValues": {
+          "expressionLanguage": "https://www.omg.org/spec/DMN/20230324/FEEL/",
+          "id": "iv_calc",
+          "importedElement": "monthlyPayment",
+        },
+        "type": "literalExpression",
+        "typeRef": "number",
+      },
+      "id": "d_calc",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Monthly Payment",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_calc",
+        "name": "Monthly Payment",
+        "typeRef": "number",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_le_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "Literal Expression",
+  "namespace": "https://verid.tools/fixtures/literal-expression",
+  "organizationUnits": [],
   "performanceIndicators": [],
   "textAnnotations": [],
 }
@@ -3260,6 +3470,122 @@ exports[`base fixture snapshots > base/base-no-ids.dmn 1`] = `
   "knowledgeSources": [],
   "name": "No IDs Model",
   "namespace": "https://verid.tools/fixtures/no-ids",
+  "organizationUnits": [],
+  "performanceIndicators": [],
+  "textAnnotations": [],
+}
+`;
+
+exports[`base fixture snapshots > base/base-oc-with-defaultoutput.dmn 1`] = `
+{
+  "_indexKeys": [
+    "_dt_multi_001",
+    "d_multi",
+    "dt_multi",
+    "ic1",
+    "oc_decision",
+    "oc_limit",
+    "r1",
+  ],
+  "associations": [],
+  "businessKnowledgeModels": [],
+  "decisionServices": [],
+  "decisions": [
+    {
+      "authorityRequirements": [],
+      "decisionMakers": [],
+      "decisionOwners": [],
+      "expression": {
+        "annotations": [],
+        "hitPolicy": "UNIQUE",
+        "id": "dt_multi",
+        "inputs": [
+          {
+            "id": "ic1",
+            "inputExpression": {
+              "id": "ie1",
+              "text": "score",
+              "type": "literalExpression",
+              "typeRef": "number",
+            },
+            "label": "Score",
+          },
+        ],
+        "outputs": [
+          {
+            "defaultOutputEntry": {
+              "id": "doe1",
+              "text": ""manual"",
+              "type": "literalExpression",
+            },
+            "id": "oc_decision",
+            "label": "Decision",
+            "name": "decision",
+            "outputValues": {
+              "id": "ov_decision",
+              "text": ""approved","manual","rejected"",
+            },
+            "typeRef": "string",
+          },
+          {
+            "id": "oc_limit",
+            "label": "Credit Limit",
+            "name": "creditLimit",
+            "typeRef": "number",
+          },
+        ],
+        "preferredOrientation": "Rule-as-Row",
+        "rules": [
+          {
+            "annotationEntries": [],
+            "id": "r1",
+            "inputEntries": [
+              {
+                "id": "r1_ie1",
+                "text": "> 700",
+              },
+            ],
+            "outputEntries": [
+              {
+                "id": "r1_oe1",
+                "text": ""approved"",
+                "type": "literalExpression",
+              },
+              {
+                "id": "r1_oe2",
+                "text": "50000",
+                "type": "literalExpression",
+              },
+            ],
+          },
+        ],
+        "type": "decisionTable",
+      },
+      "id": "d_multi",
+      "impactedPerformanceIndicators": [],
+      "informationRequirements": [],
+      "knowledgeRequirements": [],
+      "name": "Multi Output Decision",
+      "supportedObjectives": [],
+      "usingProcesses": [],
+      "usingTasks": [],
+      "variable": {
+        "id": "var_multi",
+        "name": "Multi Output Decision",
+        "typeRef": "string",
+      },
+    },
+  ],
+  "dmnVersion": "1.5",
+  "elementCollections": [],
+  "groups": [],
+  "id": "_dt_multi_001",
+  "imports": [],
+  "inputData": [],
+  "itemDefinitions": [],
+  "knowledgeSources": [],
+  "name": "DT Multi Output",
+  "namespace": "https://verid.tools/fixtures/dt-multioutput",
   "organizationUnits": [],
   "performanceIndicators": [],
   "textAnnotations": [],

@@ -63,6 +63,9 @@ export function mapInputData(raw: unknown, ctx: MapContext): InputData[] {
     if (label !== undefined) el.label = label;
     const desc = asStr(r['@description']);
     if (desc !== undefined) el.description = desc;
+    const isCollection = r['@isCollection'];
+    if (isCollection !== undefined)
+      el.isCollection = isCollection === 'true' || isCollection === true;
     const varRaw = asRecord(r.variable);
     if (varRaw) el.variable = mapInfoItem(varRaw);
     if (id) ctx.index.set(id, el);
@@ -107,7 +110,7 @@ export function mapKnowledgeSources(raw: unknown, ctx: MapContext): KnowledgeSou
     if (label !== undefined) el.label = label;
     const desc = asStr(r['@description']);
     if (desc !== undefined) el.description = desc;
-    const type = asStr(r['@type']);
+    const type = asStr(r.type) ?? asStr(r['@type']);
     if (type !== undefined) el.type = type;
     const locationURI = asStr(r['@locationURI']);
     if (locationURI !== undefined) el.locationURI = locationURI;
