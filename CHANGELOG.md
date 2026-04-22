@@ -1,5 +1,11 @@
 # @veridtools/dmn-parser
 
+## 0.2.0
+
+### Minor Changes
+
+- 0f37529: Add `outputLabel` to `OutputClause`, `isCollection` to `InputData`, `ImportedValues` interface with `LiteralExpression.importedValues`, fix `PerformanceIndicator.URI` casing, and expand `KnowledgeSource.type` to read child element form. Update `@veridtools/dmn-fixtures` to 0.3.0.
+
 ## 0.1.1
 
 ### Patch Changes
