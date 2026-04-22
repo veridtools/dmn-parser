@@ -13,8 +13,8 @@ export function mapPerformanceIndicators(raw: unknown, ctx: MapContext): Perform
     };
     const description = asStr(r['@description']);
     if (description !== undefined) el.description = description;
-    const uri = asStr(r['@uri']);
-    if (uri !== undefined) el.uri = uri;
+    const URI = asStr(r['@URI']);
+    if (URI !== undefined) el.URI = URI;
     const label = asStr(r['@label']);
     if (label !== undefined) el.label = label;
     if (id) ctx.index.set(id, el);

@@ -66,12 +66,12 @@
     "fast-xml-parser": "^4.3.0"
   },
   "devDependencies": {
-    "@veridtools/dmn-fixtures": "^0.2.1",
     "@biomejs/biome": "^2.0.0",
     "@changesets/cli": "^2.27.0",
     "@commitlint/cli": "^19.0.0",
     "@commitlint/config-conventional": "^19.0.0",
     "@types/node": "^20.0.0",
+    "@veridtools/dmn-fixtures": "^0.3.0",
     "husky": "^9.0.0",
     "lint-staged": "^15.0.0",
     "tsup": "^8.0.0",

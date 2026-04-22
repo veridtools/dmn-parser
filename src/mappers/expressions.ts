@@ -7,6 +7,7 @@ import type {
   Expression,
   Filter,
   FunctionDefinition,
+  ImportedValues,
   InformationItem,
   Invocation,
   Iterator,
@@ -34,6 +35,18 @@ export function mapLiteralExpression(
   if (lang !== undefined) el.expressionLanguage = lang;
   const text = asStr(raw.text);
   if (text !== undefined) el.text = text;
+  const ivRaw = asRecord(raw.importedValues);
+  if (ivRaw) {
+    const iv: ImportedValues = {};
+    const ivId = asStr(ivRaw['@id']);
+    if (ivId !== undefined) iv.id = ivId;
+    const importedElement = asStr(ivRaw.importedElement);
+    if (importedElement !== undefined) iv.importedElement = importedElement;
+    const ivLang = asStr(ivRaw.expressionLanguage);
+    if (ivLang !== undefined) iv.expressionLanguage = ivLang;
+    el.importedValues = iv;
+    if (ivId && ctx) ctx.index.set(ivId, iv);
+  }
   if (id && ctx) ctx.index.set(id, el);
   return el;
 }

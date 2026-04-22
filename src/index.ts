@@ -29,6 +29,7 @@ export type {
   Group,
   HitPolicy,
   Import,
+  ImportedValues,
   InformationItem,
   InformationRequirement,
   InputClause,

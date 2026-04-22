@@ -111,6 +111,7 @@ export interface Decision extends DMNElement {
 export interface InputData extends DMNElement {
   name: string;
   description?: string;
+  isCollection?: boolean;
   variable?: InformationItem;
 }
 
@@ -154,12 +155,19 @@ export type Expression =
   | Filter
   | Iterator;
 
+export interface ImportedValues {
+  id?: string;
+  importedElement?: string;
+  expressionLanguage?: string;
+}
+
 export interface LiteralExpression {
   type: 'literalExpression';
   id?: string;
   typeRef?: string;
   expressionLanguage?: string;
   text?: string;
+  importedValues?: ImportedValues;
 }
 
 export interface DecisionTable {
@@ -186,6 +194,7 @@ export interface OutputClause {
   id?: string;
   name?: string;
   label?: string;
+  outputLabel?: string;
   typeRef?: string;
   outputValues?: UnaryTests;
   defaultOutputEntry?: LiteralExpression;
@@ -350,7 +359,7 @@ export interface ElementCollection extends DMNElement {
 export interface PerformanceIndicator extends DMNElement {
   name: string;
   description?: string;
-  uri?: string;
+  URI?: string;
   impactingDecisions: DMNElementRef[];
 }
 export interface OrganizationUnit extends DMNElement {
