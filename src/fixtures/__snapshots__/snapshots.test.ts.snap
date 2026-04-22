@@ -3636,12 +3636,30 @@ exports[`base fixture snapshots > base/base-with-dmndi.dmn 1`] = `
   "_indexKeys": [
     "_dmndi_001",
     "d1",
+    "ds1",
     "id1",
     "le1",
   ],
   "associations": [],
   "businessKnowledgeModels": [],
-  "decisionServices": [],
+  "decisionServices": [
+    {
+      "encapsulatedDecisions": [],
+      "id": "ds1",
+      "inputData": [
+        {
+          "href": "#id1",
+        },
+      ],
+      "inputDecisions": [],
+      "name": "Approval Service",
+      "outputDecisions": [
+        {
+          "href": "#d1",
+        },
+      ],
+    },
+  ],
   "decisions": [
     {
       "authorityRequirements": [],
